@@ -60,7 +60,7 @@
                                 echo '<tr>' .
                                     '<td class="text-center">' . $row['ID'] . '</td>' .
                                     '<td class="text-center">' . $row['NAME'] . '</td>' .
-                                    '<td class="text-center">' . $a++ . '</td>' .
+                                    '<td class="text-center">' . $b++ . '</td>' .
                                     '<td class="text-center">' .  '</td>' .
                                     '<td class="text-center">' . '<input class="form-control">' . '</td>' .
                                     '</tr>';
