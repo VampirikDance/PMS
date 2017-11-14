@@ -1,0 +1,10 @@
+body {
+    background: url(../img/login-background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+main {
+    margin: 10% 0 0 0;
+}
