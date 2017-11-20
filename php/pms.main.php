@@ -4,9 +4,38 @@
         <meta charset="utf-8">
         <title>Авторизация</title>
         <link href="../css/reset.css" media="screen" rel="stylesheet">
+        <link href="../css/ui.jqgrid.css" media="screen" rel="stylesheet">
         <link href="../css/bootstrap.min.css" media="screen" rel="stylesheet">
         <link href="../css/bootstrap-reboot.min.css" media="screen" rel="stylesheet">
         <link href="../css/bootstrap-grid.min.css" media="screen" rel="stylesheet">
+        <script src="../js/jquery-3.2.1.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/i18n/grid.locale-ru.js"></script>
+        <script src="../js/jquery.jqGrid.min.js"></script>  
+        <script type="text/javascript">
+            $(function () {
+                $("#list").jqGrid({
+                    url: "pms.table.post.php",
+                    datatype: "xml",
+                    mtype: "GET",
+                    colNames: ["ID", "NAME", "COUNTS"],
+                    colModel: [
+                        { name: "ID", width: 100 },
+                        { name: "NAME", width: 100 },
+                        { name: "COUNTS", width: 100, align: "right" }
+                    ],
+                    pager: "#pager",
+                    rowNum: 10,
+                    rowList: [10, 20, 30],
+                    sortname: "ID",
+                    sortorder: "asc",
+                    viewrecords: true,
+                    gridview: true,
+                    autoencode: true,
+                    caption: "My first grid"
+                }); 
+            }); 
+        </script>
     </head> 
     <body>
         <header>
@@ -37,46 +66,11 @@
             </div>
         </header>
         <main>
-            <table class="table table-borydered">
-                <thead>
-                    <tr>
-                        <th class="text-center">#</th>
-                        <th class="text-center"><h4>Наименовние</h4></th>
-                        <th class="text-center"><h4>Кол-во</h4></th>
-                        <th class="text-center"><h4>Цена</h4></th>
-                        <th class="text-center"><h4>Кол-во для заказа</h4></th>
-                        <th class="text-center"><h4>Остаток</h4></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                        $link = mysqli_connect(
-                            'localhost',  /* Хост */
-                            'root',       /* Имя пользователя */
-                            '',           /* Пароль */
-                            'PMS');   /* База данных */
-                        if ($result = mysqli_query($link, 'SELECT * FROM PRODUCTS_GROUPS ORDER BY ID')) {                        
-                            while( $row = mysqli_fetch_assoc($result) ){
-                                echo '<tr>' .
-                                    '<td class="text-center">' . $row['ID'] . '</td>' .
-                                    '<td class="text-center">' . $row['NAME'] . '</td>' .
-                                    '<td class="text-center">' . $a++ . '</td>' .
-                                    '<td class="text-center">' .  '</td>' .
-                                    '<td class="text-center">' . '<input class="form-control">' . '</td>' .
-                                    '</tr>';
-                            }
-                            mysqli_free_result($result);
-                        }
-                        
-                        mysqli_close($link);
-                    ?>
-                </tbody>
-            </table>
+            <table id="list"><tr><td></td></tr></table> 
+            <div id="pager"></div> 
         </main>
         <footer>
 
         </footer>
-        <script src="../js/jquery-3.2.1.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
     </body>
 </html>
