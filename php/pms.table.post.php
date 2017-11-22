@@ -72,14 +72,14 @@ $s .=  "<rows>";
 $s .= "<page>".$page."</page>";
 $s .= "<total>".$total_pages."</total>";
 $s .= "<records>".$count."</records>";
- 
+
 // Обязательно передайте текстовые данные в CDATA
 while($row = mysql_fetch_array($result,MYSQL_ASSOC)) {
     $s .= "<row id='". $row['ID']."'>";            
     $s .= "<cell>". $row['ID']."</cell>";
     $s .= "<cell>". $row['NAME']."</cell>";
-    $s .= "<cell>". $row['COUNT']."</cell>";
-    $s .= "<cell><![CDATA[". $row['note']."]]></cell>";
+    $s .= "<cell>". $row['COUNTS']."</cell>";
+    $s .= "<cell>". ''."</cell>";
     $s .= "</row>";
 }
 $s .= "</rows>"; 
