@@ -20,9 +20,11 @@ $(function () {
             { 
                 name:'quantity', 
                 align:'center',
-                cellEdit: true
+                editable: true
             }
         ],
+        cellEdit: true,
+        cellsubmit : 'remote',
         pager: "#pager",
         rowNum: 30,
         rowList: [10, 20, 30],

@@ -14,6 +14,7 @@
         <script src="../js/bootstrap.min.js"></script>
         <script src="../js/i18n/grid.locale-ru.js"></script>
         <script src="../js/jquery.jqGrid.min.js"></script>  
+        <script src="../js/grid.celledit.js"></script> 
         <script src="../js/tablesettings.js"></script>
     </head> 
     <body>
